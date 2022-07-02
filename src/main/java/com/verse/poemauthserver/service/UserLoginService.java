@@ -1,11 +1,11 @@
 package com.verse.poemauthserver.service;
 
 import com.verse.poemauthserver.entity.UserInfo;
-import org.springframework.web.bind.annotation.RequestBody;
 
-public interface UserInfoService {
+public interface UserLoginService {
 
     void register(UserInfo userInfo);
 
 
+    String login(UserInfo userInfo);
 }

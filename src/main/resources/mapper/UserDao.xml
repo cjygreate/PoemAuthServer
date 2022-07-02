@@ -6,8 +6,10 @@
     <select id="queryUserByUsername" parameterType="java.lang.String" resultType="com.verse.poemauthserver.entity.UserInfo">
         select
             id,
-            username,
-            password
+            username as username,
+            password as password,
+            user_phone as userPhone,
+            user_email as userEmail
         from user
         where username = #{username}
     </select>

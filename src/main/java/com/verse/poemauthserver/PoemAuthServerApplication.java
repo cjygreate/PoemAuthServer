@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 public class PoemAuthServerApplication {
 
     public static void main(String[] args) {
+
         SpringApplication.run(PoemAuthServerApplication.class, args);
     }
 

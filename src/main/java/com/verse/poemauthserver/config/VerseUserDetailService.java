@@ -1,6 +1,7 @@
 package com.verse.poemauthserver.config;
 
 import com.verse.poemauthserver.entity.UserInfo;
+import com.verse.poemauthserver.entity.VerseUserDetail;
 import com.verse.poemauthserver.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -31,7 +32,10 @@ public class VerseUserDetailService implements UserDetailsService {
         if(user == null) {
             throw new UsernameNotFoundException("用户未注册");
         }
-        return new User(user.getUsername(), passwordEncoder.encode(user.getPassword()), new ArrayList<>());
+//        boolean matches = passwordEncoder.matches("123", user.getPassword());
+//        System.out.println(matches);
+        VerseUserDetail verseUserDetail = new VerseUserDetail(user);
+        return verseUserDetail;
     }
 
 }
