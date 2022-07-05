@@ -3,6 +3,8 @@ package com.verse.poemauthserver.controller;
 import com.verse.common.data.VerseResponse;
 import com.verse.poemauthserver.entity.UserInfo;
 import com.verse.poemauthserver.service.UserLoginService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -13,13 +15,15 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/verse")
 public class UserLoginController {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(UserLoginController.class);
+
     @Autowired
     private UserLoginService userLoginService;
 
     @PostMapping("/user/login")
     public VerseResponse login(@RequestBody UserInfo userInfo) {
         String jwtToken = userLoginService.login(userInfo);
-        System.out.println("login....");
+        LOGGER.info("login success....");
         VerseResponse response = new VerseResponse();
         return response.success(jwtToken);
     }

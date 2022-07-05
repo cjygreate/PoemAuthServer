@@ -37,8 +37,10 @@ class PoemAuthServerApplicationTests {
 //        Object aaa = redisTemplate.opsForValue().get("aaa");
 //        System.out.println(aaa);
 
-        System.out.println(redisTemplate);
-        redisUtils.set("aaa", "bbbb");
+//        System.out.println(redisTemplate);
+//        redisUtils.set("aaa", "bbbb");
+//        System.out.println("成功");
+        System.out.println(redisUtils.get("aaa"));
 
     }
 
